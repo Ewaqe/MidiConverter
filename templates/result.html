@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Результат{% endblock %}
+
+{% block container %}
+<div class="container">
+    <h1>Результат конвертации</h1>
+    <p>Ваш MIDI файл был успешно конвертирован в код Arduino.</p>
+    <div class="result-box" id="result">{{ code }}</div>
+    <button class="copy-btn" onclick="copyCode()">Копировать код</button>
+</div>
+
+<script>
+function copyCode() {
+    const range = document.createRange();
+    range.selectNode(document.getElementById('result'));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    alert('Код скопирован в буфер обмена!');
+}
+</script>
+{% endblock %}

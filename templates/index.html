@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Загрузите свой файл{% endblock %}
+{% block container %}
+    <div class="container">
+        <h1>Добро пожаловать в MIDI в Arduino Конвертер</h1>
+        <p>Загрузите ваш MIDI файл для конвертации в код Arduino.</p>
+        <form action="/upload_midi" method="post" enctype="multipart/form-data">
+            <input type="file" id="midi-file" name="file">
+            <input class="upload-btn" type="submit" value="Загрузить">
+        </form>
+    </div>
+{% endblock %}
